@@ -23,6 +23,7 @@ $clients = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <th>Email</th>
             <th>Password</th>
             <th>Action</th>
+            <th></th>
         </tr>
         <?php foreach ($clients as $client): ?>
             <tr>
