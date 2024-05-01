@@ -38,6 +38,8 @@ if (!$client) {
         $name = $_POST['name'];
         $address = $_POST['address'];
         $phone_number = $_POST['phone_number'];
+        $password=$_POST['password'];
+        $email=$_POST['email'];
         
         $stmt = $pdo->prepare("UPDATE client_table SET client_code = ?, name = ?, address = ?, phone_number = ? WHERE id = ?");
         $stmt->execute([$client_code, $name, $address, $phone_number, $id]);

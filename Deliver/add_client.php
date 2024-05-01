@@ -2,29 +2,56 @@
 <html>
 <head>
     <title>Add New Client</title>
+    <link rel="stylesheet" href="style-client.css">
 </head>
 <body>
-    <h2>Add New Client</h2>
-    <form action="add_client.php" method="POST">
-        Client Code: <input type="text" name="client_code"><br>
-        Name: <input type="text" name="name"><br>
-        Address: <input type="text" name="address"><br>
-        Phone Number: <input type="text" name="phone_number"><br>
-        <input type="submit" value="Add Client">
-    </form>
+   
+    <form class="form" action="add_client.php" method="POST">
+    <p class="title">Register </p>
+    <p class="message">Signup now and get full access to our app. </p>
+        <div class="flex">
+        <label id="firstname" >
+            <input class="input" type="text" name="name"   placeholder="" required="">
+            <span>Firstname</span>
+        </label>
+
+       
+    </div>  
+            
+    <label>
+        <input class="input" type="text"  name="address"placeholder="" required="">
+        <span>Adress</span>
+    </label> 
+        
+    <label>
+        <input class="input" type="text" name="phone_number" placeholder="" required="">
+        <span>Phone number</span>
+    </label>
+    <label><input class="input" type="email" name="email" placeholder="" required="">
+        <span>Email</span></label>
+    <label >
+    <input class="input" type="password" name="password" placeholder="" required="">
+        <span>Password</span>
+    </label>
+    
+    <button class="submit" value="Add Client">Submit</button>
+    <p class="signin">Already have an acount ? <a href="#">Signin</a> </p>
+</form>
     <?php
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         include 'db.php';
         
-        $client_code = $_POST['client_code'];
+        
         $name = $_POST['name'];
         $address = $_POST['address'];
         $phone_number = $_POST['phone_number'];
+        $password=$_POST['password'];
+        $email=$_POST['email'];
         
-        $stmt = $pdo->prepare("INSERT INTO client_table (client_code, name, address, phone_number) VALUES (?, ?, ?, ?)");
-        $stmt->execute([$client_code, $name, $address, $phone_number]);
+        $stmt = $pdo->prepare("INSERT INTO client_table ( name, address, phone_number,email,password) VALUES (?, ?, ?, ?,?)");
+        $stmt->execute([ $name, $address, $phone_number,$email,$password]);
         
-        header("Location: index.php");
+        header("Location: Deliver.php");
         exit();
     }
     ?>
