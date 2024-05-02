@@ -116,7 +116,8 @@ display: flex;
 height: 60%;
 justify-content: center;
 align-items: center;
-margin: auto;
+margin-top: 100px;
+
 
 }
 ul {
@@ -230,7 +231,7 @@ ul {
 }
 #Services{
     height: 100vh;
-    box-shadow: 0px 1px 16px 0px rgba(0, 0, 0, 0.16);
+    
 
 }
 .Serv-texts{
@@ -246,49 +247,6 @@ ul {
 .second-serv-text{
     font-size: 15px;
 }
-.card-container{
-    display: flex;
-    justify-content: center;
-    margin: 30px;
-}
-.card {
-    width: 300px;
-    height: 400px;
-    background-image: linear-gradient(163deg, #00ff75 0%, #3700ff 100%);
-    border-radius: 20px;
-    transition: all .3s;
-    margin: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-   }
-   
-   .card2 {
-    width: 300px;
-    height: 400px;
-    background-color: rgb(229, 227, 227);
-    border-radius:;
-    transition: all .2s;
-   }
-   
-   .card2:hover {
-    transform: scale(0.98);
-    border-radius: 20px;
-
-   }
-   
-   .card:hover {
-    box-shadow: 0px 0px 30px 1px rgba(0, 255, 117, 0.30);
-   }
-  .icon{
-    margin: 30px;
-   height: 150px;
-
-   }
-   svg:hover {
-    fill: #20B2AA;
-  }
 
   .Join-us{
     height: 100vh;
@@ -305,4 +263,85 @@ ul {
 
   .Order{
     height: 100vh;
+  }
+  svg{
+    height: 50px;
+   
+  }
+  .card {
+    display: flex;
+    width: 250px;
+    height: 400px;
+    background: white;
+    transition: all 0.4s;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 5px  rgba(0, 0, 0, 0.705);
+    font-size: 20px;
+    font-weight: 900;
+    margin-right: 100px;
+    justify-content: center;
+    flex-direction: column;
+
+
+  }
+  .container-card{
+    
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .card:hover {
+    border-radius: 15px;
+    cursor: pointer;
+    transform: scale(1.2);
+    box-shadow: 0px 0px 10px 5px  rgba(0, 0, 0, 0.705);
+    background: #20B2AA;
+  }
+  
+  .first-content {
+    height: 100%;
+    width: 100%;
+    transition: all 0.4s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    border-radius: 15px;
+  }
+  
+  .card:hover .first-content {
+    height: 0px;
+    opacity: 0;
+  }
+  
+  .second-content {
+    height: 0%;
+    width: 100%;
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px;
+    transition: all 0.4s;
+    font-size:50px;
+    transform: rotate(90deg) scale(-1);
+  }
+  
+  .card:hover .second-content {
+    opacity: 1;
+    height: 100%;
+    font-size: 15px;
+    transform: rotate(0deg);
+    padding: 5px;
+  }
+  
+  .card-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 200px;
+    
   }
