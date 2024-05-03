@@ -5,7 +5,7 @@ $dbname = 'tp_bd';
 $username = 'root';
 $password = '';
 
-// Create a PDO instance
+
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -13,17 +13,17 @@ try {
     die("Error: Could not connect. " . $e->getMessage());
 }
 
-// Function to fetch all deliverers from database
+
 function getAllDeliverers() {
     global $pdo;
-    $stmt = $pdo->query("SELECT * FROM deliverers");
+    $stmt = $pdo->query("SELECT * FROM chauffeurlivreur");
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
 // Function to delete a deliverer by ID
 function deleteDeliverer($id) {
     global $pdo;
-    $stmt = $pdo->prepare("DELETE FROM deliverers WHERE id = ?");
+    $stmt = $pdo->prepare("DELETE FROM chauffeurlivreur WHERE matricule_chauffeur = ?");
     $stmt->execute([$id]);
 }
 
@@ -33,25 +33,25 @@ if (isset($_POST['delete'])) {
     deleteDeliverer($id_to_delete);
 }
 
-// Check if form is submitted for update
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update'])) {
-    $id = $_POST['id'];
+    $id = $_POST['matricule_chauffeur '];
     $name = $_POST['name'];
     $address = $_POST['address'];
-    $phone = $_POST['phone'];
+  
 
-    $stmt = $pdo->prepare("UPDATE deliverers SET name = ?, address = ?, phone = ? WHERE id = ?");
-    $stmt->execute([$name, $address, $phone, $id]);
+    $stmt = $pdo->prepare("UPDATE chauffeurlivreur SET nom = ?, adresse = ? WHERE matricule_chauffeur = ?");
+    $stmt->execute([$name, $address,  $id]);
 }
 
 // Check if form is submitted for adding new deliverer
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add'])) {
     $name = $_POST['name'];
     $address = $_POST['address'];
-    $phone = $_POST['phone'];
+    
 
-    $stmt = $pdo->prepare("INSERT INTO deliverers (name, address, phone) VALUES (?, ?, ?)");
-    $stmt->execute([$name, $address, $phone]);
+    $stmt = $pdo->prepare("INSERT INTO chauffeurlivreur (nom, adresse) VALUES ( ?, ?)");
+    $stmt->execute([$name, $address]);
 }
 ?>
 
@@ -72,33 +72,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add'])) {
         <input type="text" id="name" name="name" required><br>
         <label for="address">Address:</label><br>
         <input type="text" id="address" name="address" required><br>
-        <label for="phone">Phone:</label><br>
-        <input type="text" id="phone" name="phone" required><br><br>
-        <input type="submit" name="add" value="Add Deliverer">
+        <button type="submit" name="add">Submit</button>
+
     </form>
 
-    <!-- List of deliverers with delete and edit functionality -->
     <h2>List of Deliverers</h2>
     <table border="1">
         <tr>
             <th>Name</th>
             <th>Address</th>
-            <th>Phone</th>
             <th>Actions</th>
         </tr>
         <?php
         $deliverers = getAllDeliverers();
         foreach ($deliverers as $deliverer) {
             echo "<tr>";
-            echo "<td>{$deliverer['name']}</td>";
-            echo "<td>{$deliverer['address']}</td>";
-            echo "<td>{$deliverer['phone']}</td>";
+            echo "<td>{$deliverer['nom']}</td>";
+            echo "<td>{$deliverer['adresse']}</td>";
+            
             echo "<td>";
             echo "<form method='post' style='display: inline;'>";
-            echo "<input type='hidden' name='id_to_delete' value='{$deliverer['id']}'>";
+            echo "<input type='hidden' name='id_to_delete' value='{$deliverer['matricule_chauffeur']}'>";
             echo "<input type='submit' name='delete' value='Delete'>";
             echo "</form>";
-            echo "<a href='edit_deliverer.php?id={$deliverer['id']}'>Edit</a>";
+            echo "<a href='edit_deliverer.php?id={$deliverer['matricule_chauffeur']}'>Edit</a>";
             echo "</td>";
             echo "</tr>";
         }

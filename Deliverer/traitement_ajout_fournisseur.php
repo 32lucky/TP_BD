@@ -3,7 +3,7 @@
 <?php
 include 'db.php';
 
-// Récupérer les données du formulaire
+
 
 $nom = $_POST['nom'];
 $adresse = $_POST['adresse'];

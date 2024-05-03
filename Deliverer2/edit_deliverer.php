@@ -18,7 +18,7 @@ if (isset($_GET['id'])) {
     $deliverer_id = $_GET['id'];
 
     // Retrieve deliverer information from database
-    $stmt = $pdo->prepare("SELECT * FROM deliverers WHERE id = ?");
+    $stmt = $pdo->prepare("SELECT * FROM chauffeurlivreur WHERE matricule_chauffeur = ?");
     $stmt->execute([$deliverer_id]);
     $deliverer = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -55,8 +55,7 @@ if (isset($_GET['id'])) {
         <input type="text" id="name" name="name" value="<?php echo $deliverer['name']; ?>" required><br>
         <label for="address">Address:</label><br>
         <input type="text" id="address" name="address" value="<?php echo $deliverer['address']; ?>" required><br>
-        <label for="phone">Phone:</label><br>
-        <input type="text" id="phone" name="phone" value="<?php echo $deliverer['phone']; ?>" required><br><br>
+       
         <input type="submit" name="update" value="Update">
     </form>
 </body>
