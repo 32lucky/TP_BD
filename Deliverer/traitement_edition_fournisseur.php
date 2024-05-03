@@ -7,15 +7,15 @@ include 'db.php';
 $id = $_GET['id'];
 
 // Récupérer les nouvelles données du formulaire
-$code = $_POST['code'];
+
 $nom = $_POST['nom'];
 $adresse = $_POST['adresse'];
 $telephone = $_POST['telephone'];
 
 // Préparer et exécuter la requête SQL pour mettre à jour les informations du fournisseur
-$query = "UPDATE fournisseurs SET code_fournisseur = ?, nom = ?, adresse = ?, telephone = ? WHERE id = ?";
+$query = "UPDATE fournisseurs SET  nom = ?, adresse = ?, telephone = ? WHERE id = ?";
 $stmt = $pdo->prepare($query);
-$stmt->execute([$code, $nom, $adresse, $telephone, $id]);
+$stmt->execute([ $nom, $adresse, $telephone, $id]);
 
 // Redirection vers la page d'accueil (liste des fournisseurs)
 header("Location: index.php");

@@ -25,8 +25,7 @@
     if ($fournisseur) {
         ?>
         <form action="traitement_edition_fournisseur.php?id=<?php echo $id; ?>" method="POST">
-            <label for="code">Code du Fournisseur:</label>
-            <input type="text" id="code" name="code" value="<?php echo $fournisseur['code_fournisseur']; ?>" required><br>
+           
             <label for="nom">Nom du Fournisseur:</label>
             <input type="text" id="nom" name="nom" value="<?php echo $fournisseur['nom']; ?>" required><br>
             <label for="adresse">Adresse:</label>

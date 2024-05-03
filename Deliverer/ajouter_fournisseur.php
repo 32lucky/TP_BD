@@ -5,20 +5,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ajouter un Fournisseur</title>
+    <title>Ajouter un Fournisseur</title> 
+    <link rel="stylesheet" href="style3.css">
 </head>
 <body>
-    <h1>Ajouter un Fournisseur</h1>
-    <form action="traitement_ajout_fournisseur.php" method="POST">
-        <label for="code">Code du Fournisseur:</label>
-        <input type="text" id="code" name="code" required><br>
-        <label for="nom">Nom du Fournisseur:</label>
-        <input type="text" id="nom" name="nom" required><br>
-        <label for="adresse">Adresse:</label>
-        <input type="text" id="adresse" name="adresse" required><br>
-        <label for="telephone">Téléphone:</label>
-        <input type="text" id="telephone" name="telephone" required><br>
-        <input type="submit" value="Ajouter">
+    
+    
+        
+    
+    <form class="form" action="traitement_ajout_fournisseur.php" method="POST">
+    <p class="title">Be a Fournisseur </p>
+        <div class="flex">
+        <label id="firstname"  for="nom">
+            <input class="input" type="text" id="nom" name="nom" required>
+            <span>Nom du Fournisseur:</span>
+        </label>
+
+       
+    </div>  
+            
+    <label for="adresse">
+        <input class="input" type="text" id="adresse" name="adresse" required>
+        <span>Adresse:</span>
+    </label> 
+        
+    <label  for="telephone">
+        <input class="input" type="text" id="telephone" name="telephone" required>
+        <span>Phone number</span>
+    </label>
+    
+    
+    <button class="submit" value="Ajouter">Submit</button>
     </form>
+
 </body>
 </html>

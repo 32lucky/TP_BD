@@ -8,7 +8,7 @@ if (!isset($_GET['id'])) {
 
 $id = $_GET['id'];
 
-$stmt = $pdo->prepare("SELECT * FROM client_table WHERE id = ?");
+$stmt = $pdo->prepare("SELECT * FROM client_table WHERE code_client = ?");
 $stmt->execute([$id]);
 $client = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -43,7 +43,7 @@ if (!$client) {
         $password=$_POST['password'];
         $email=$_POST['email'];
         
-        $stmt = $pdo->prepare("UPDATE client_table SET client_code = ?, name = ?, address = ?, phone_number = ? WHERE id = ?");
+        $stmt = $pdo->prepare("UPDATE client_table SET client_code = ?, name = ?, address = ?, phone_number = ? WHERE code_client = ?");
         $stmt->execute([$client_code, $name, $address, $phone_number, $id]);
         
         header("Location: Deliver.php");

@@ -8,7 +8,7 @@ if (!isset($_GET['id'])) {
 
 $id = $_GET['id'];
 
-$stmt = $pdo->prepare("DELETE FROM client_table WHERE id = ?");
+$stmt = $pdo->prepare("DELETE FROM client_table WHERE code_client = ?");
 $stmt->execute([$id]);
 
 header("Location: Deliver.php");

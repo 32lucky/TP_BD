@@ -55,7 +55,7 @@
         
         while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
             echo "<tr>";
-            echo "<td>{$row['code_fournisseur']}</td>";
+            echo "<td>{$row['id']}</td>";
             echo "<td>{$row['nom']}</td>";
             echo "<td>{$row['adresse']}</td>";
             echo "<td>{$row['telephone']}</td>";

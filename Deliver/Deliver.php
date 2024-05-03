@@ -58,15 +58,15 @@ $clients = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </tr>
         <?php foreach ($clients as $client): ?>
             <tr>
-                <td><?php echo $client['id']; ?></td>
+                <td><?php echo $client['code_client']; ?></td>
                 <td><?php echo $client['name']; ?></td>
                 <td><?php echo $client['address']; ?></td>
                 <td><?php echo $client['phone_number']; ?></td>
                 <td><?php echo $client['Email']; ?></td>
                 <td><?php echo $client['Password']; ?></td>
                 <td>
-                    <a class="outil" href="edit_client.php?id=<?php echo $client['id']; ?>">Edit</a>
-                    <a class="outil" href="delete_client.php?id=<?php echo $client['id']; ?>" onclick="return confirm('Are you sure?')">Delete</a>
+                    <a class="outil" href="edit_client.php?id=<?php echo $client['code_client']; ?>">Edit</a>
+                    <a class="outil" href="delete_client.php?id=<?php echo $client['code_client']; ?>" onclick="return confirm('Are you sure?')">Delete</a>
                 </td>
             </tr>
         <?php endforeach; ?>
