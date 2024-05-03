@@ -7,8 +7,7 @@
 <body>
    
     <form class="form" action="add_client.php" method="POST">
-    <p class="title">Register </p>
-    <p class="message">Signup now and get full access to our app. </p>
+    <p class="title">Be a client </p>
         <div class="flex">
         <label id="firstname" >
             <input class="input" type="text" name="name"   placeholder="" required="">
@@ -35,7 +34,6 @@
     </label>
     
     <button class="submit" value="Add Client">Submit</button>
-    <p class="signin">Already have an acount ? <a href="#">Signin</a> </p>
 </form>
     <?php
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {

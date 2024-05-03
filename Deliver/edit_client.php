@@ -32,6 +32,8 @@ if (!$client) {
         Phone Number: <input type="text" name="phone_number" value="<?php echo $client['phone_number']; ?>"><br>
         <input type="submit" value="Update Client">
     </form>
+
+    
     <?php
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $client_code = $_POST['client_code'];
