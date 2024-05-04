@@ -11,11 +11,13 @@ $id = $_GET['id'];
 $nom = $_POST['nom'];
 $adresse = $_POST['adresse'];
 $telephone = $_POST['telephone'];
+$password = $_POST['password'];
+
 
 // Préparer et exécuter la requête SQL pour mettre à jour les informations du fournisseur
-$query = "UPDATE fournisseurs SET  nom = ?, adresse = ?, telephone = ? WHERE id = ?";
+$query = "UPDATE fournisseurs SET  nom = ?, adresse = ?, telephone = ? ,password = ? WHERE id = ?";
 $stmt = $pdo->prepare($query);
-$stmt->execute([ $nom, $adresse, $telephone, $id]);
+$stmt->execute([ $nom, $adresse, $telephone, $id,$password]);
 
 // Redirection vers la page d'accueil (liste des fournisseurs)
 header("Location: index.php");

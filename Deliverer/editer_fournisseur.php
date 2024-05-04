@@ -32,6 +32,8 @@
             <input type="text" id="adresse" name="adresse" value="<?php echo $fournisseur['adresse']; ?>" required><br>
             <label for="telephone">Téléphone:</label>
             <input type="text" id="telephone" name="telephone" value="<?php echo $fournisseur['telephone']; ?>" required><br>
+            <label for="telephone">Password:</label>
+            <input type="text" id="password" name="password" value="<?php echo $fournisseur['password']; ?>" required><br>
             <input type="submit" value="Enregistrer les modifications">
         </form>
         <?php

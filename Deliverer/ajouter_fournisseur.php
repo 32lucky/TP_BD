@@ -33,6 +33,11 @@
         <input class="input" type="text" id="telephone" name="telephone" required>
         <span>Phone number</span>
     </label>
+    <label  for="password">
+        <input class="input" type="password" id="password" name="password" required>
+        <span>password</span>
+    </label>
+    
     
     
     <button class="submit" value="Ajouter">Submit</button>

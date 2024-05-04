@@ -45,6 +45,7 @@
             <th>Nom</th>
             <th>Adresse</th>
             <th>Téléphone</th>
+            <th>Passwords</th>
             <th>Actions</th>
         </tr>
         <?php
@@ -59,6 +60,7 @@
             echo "<td>{$row['nom']}</td>";
             echo "<td>{$row['adresse']}</td>";
             echo "<td>{$row['telephone']}</td>";
+            echo "<td>{$row['Password']}</td>";
             echo "<td>";
             echo "<a href='editer_fournisseur.php?id={$row['id']}'>Éditer</a> | ";
             echo "<a href='supprimer_fournisseur.php?id={$row['id']}' onclick='return confirm(\"Êtes-vous sûr de vouloir supprimer ce fournisseur ?\")'>Supprimer</a>";
