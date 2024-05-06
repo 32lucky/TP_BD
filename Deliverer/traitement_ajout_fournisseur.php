@@ -17,6 +17,6 @@ $stmt = $pdo->prepare($query);
 $stmt->execute([ $nom, $adresse, $telephone,$password]);
 
 // Redirection vers la page d'accueil (liste des fournisseurs)
-header("Location: index.php");
+header("Location: ../home.html");
 exit();
 ?>

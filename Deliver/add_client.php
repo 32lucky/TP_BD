@@ -49,7 +49,7 @@
         $stmt = $pdo->prepare("INSERT INTO client_table ( name, address, phone_number,Email,Password) VALUES (?, ?, ?, ?,?)");
         $stmt->execute([ $name, $address, $phone_number,$email,$password]);
         
-        header("Location: Deliver.php");
+        header("Location: ../home.html");
         exit();
     }
     ?>

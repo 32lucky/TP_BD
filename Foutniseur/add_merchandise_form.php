@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add Merchandise</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="items"> 
     <h2>Add New Merchandise</h2>
     <form action="add_merchandise.php" method="post">
         <label for="label">Label:</label>
@@ -17,6 +19,8 @@
         <input type="hidden" name="action" value="add"> <!-- Hidden input for 'action' parameter -->
 
         <input type="submit" value="Add Merchandise">
-    </form>
+ 
+   </form>
+    </div>
 </body>
 </html>

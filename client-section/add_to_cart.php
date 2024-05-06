@@ -12,8 +12,8 @@ if (isset($_POST['merchandise_id'])) {
     $merchandise_id = $_POST['merchandise_id'];
     $_SESSION['cart'][$merchandise_id] = isset($_SESSION['cart'][$merchandise_id]) ? $_SESSION['cart'][$merchandise_id] + 1 : 1;
     
-    // Redirect back to merchandise page
-    header("Location: merchandise.php");
+    
+    header("Location:merchandise.php");
     exit();
 }
 ?>

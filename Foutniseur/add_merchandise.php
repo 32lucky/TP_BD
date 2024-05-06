@@ -1,19 +1,17 @@
+<link rel="stylesheet" href="style.css">
 <?php
 // Include database connection
 include 'db_connect.php';
+echo"<br>";
 
-// Check if form is submitted for adding/editing/deleting merchandise
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['action'])) {
-        // Perform action based on 'action' parameter
         $action = $_POST['action'];
 
         if ($action == 'add') {
-            // Retrieve form data for adding new merchandise
             $label = $_POST['label'];
             $price = $_POST['price'];
 
-            // Insert query
             $sql = "INSERT INTO marchandise (label, price) VALUES ('$label', '$price')";
 
             if ($conn->query($sql) === TRUE) {
@@ -22,13 +20,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 echo "Error adding merchandise: " . $conn->error;
             }
         } elseif ($action == 'edit') {
-            // Retrieve form data for editing existing merchandise
             if (isset($_POST['code_marchandise'])) {
                 $code_marchandise = $_POST['code_marchandise'];
                 $label = $_POST['label'];
                 $price = $_POST['price'];
 
-                // Update query
                 $sql = "UPDATE marchandise SET label = '$label', price = '$price' WHERE code_marchandise = '$code_marchandise'";
 
                 if ($conn->query($sql) === TRUE) {
@@ -40,11 +36,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 echo "Missing code_marchandise for edit operation";
             }
         } elseif ($action == 'delete') {
-            // Retrieve merchandise code_marchandise for deletion
             if (isset($_POST['code_marchandise'])) {
                 $code_marchandise = $_POST['code_marchandise'];
 
-                // Delete query
                 $sql = "DELETE FROM marchandise WHERE code_marchandise = '$code_marchandise'";
 
                 if ($conn->query($sql) === TRUE) {
@@ -59,7 +53,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-// Fetch all merchandise from database
 $sql = "SELECT * FROM marchandise";
 $result = $conn->query($sql);
 
@@ -86,7 +79,6 @@ if ($result->num_rows > 0) {
             </td>";
         echo "</tr>";
 
-        // Display edit form when 'action' is 'edit' for the current merchandise
         if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action']) && $_POST['action'] == 'edit' && $_POST['code_marchandise'] == $row['code_marchandise']) {
             echo "<tr>";
             echo "<td colspan='4'>
@@ -104,6 +96,8 @@ if ($result->num_rows > 0) {
         }
     }
     echo "</table>";
+    echo" <a class='add' href=' add_merchandise_form.php'>Add product</a> <br>";
+
 } else {
     echo "No merchandise found.";
 }
